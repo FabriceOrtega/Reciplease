@@ -15,23 +15,6 @@ class RecipeTableViewController: UIViewController, UITableViewDelegate, UITableV
     // To pass data to the detailled view
     var recipe: Recipe!
     
-//    // Instance of class recipeRequest
-//    var recipeRequest = RecipeRequest(session: URLSession(configuration: .default))
-//
-//    // To get the data from the request
-//    var recipe : ResponseObject! {
-//        didSet {
-//            DispatchQueue.main.async {
-//                self.recipeTableVewOutlet.reloadData()
-//                print("test")
-//                //print(self.recipe.hits)
-//                print(self.recipe.q)
-//                print(self.recipe.count)
-//                print(self.recipe.hits.count)
-//            }
-//        }
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Observe alamo request
@@ -52,6 +35,9 @@ class RecipeTableViewController: UIViewController, UITableViewDelegate, UITableV
     // Method executed when the card swiped to the up
     @objc func recipeLoaded(notification:Notification) {
         recipeTableVew.reloadData()
+        if AlamoRequest.alamoRequest.recipe.hits.count == 0 {
+            alert(title: "No recipe found", message: "No recipe found with these ingredients")
+        }
     }
 
     // MARK: - Table view data source
@@ -68,8 +54,8 @@ class RecipeTableViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipe", for: indexPath) as? RecipeTableViewCell
         
         // Attribue the recipe name
-        if let responseCount = AlamoRequest.alamoRequest.recipe?.hits[indexPath.row].recipe.label {
-            cell?.recipeName.text = responseCount
+        if let responseLabel = AlamoRequest.alamoRequest.recipe?.hits[indexPath.row].recipe.label {
+            cell?.recipeName.text = responseLabel
         } else {
             cell?.recipeName.text = ""
         }
@@ -119,23 +105,6 @@ class RecipeTableViewController: UIViewController, UITableViewDelegate, UITableV
             detailVC.recipe = recipe
         }
     }
-    
-    
-//    func callAPI(ingredient: String){
-//        recipeRequest.getRequest(ingredient: ingredient) {[weak self] result in
-//            // Switch for succes or failure
-//            switch result {
-//            case .failure(let error):
-//                print(error)
-//                //self?.catchError = error
-//            case .success(let recipe):
-//                // if success, attribute the data
-//                self?.recipe = recipe
-////                print(recipe)
-//            }
-//        }
-//    }
-
 
 }
 

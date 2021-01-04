@@ -9,6 +9,7 @@ import UIKit
 
 class RecipeDetailsViewController: UIViewController {
     
+    // Get from the cell the user selected
     var recipe: Recipe!
     
     // Recipe name label
@@ -59,19 +60,11 @@ class RecipeDetailsViewController: UIViewController {
         // Change color of button
         changeFavoriteButtonColor()
         
+        // Core Data method
+        saveOrRemoveRecipe()
+        
         // Check if favorite or not
-        if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.9386852384, green: 0.905385077, blue: 0.8662842512, alpha: 1) {
-            // Remove from the favorite array
-            if let index = Favorites.favorites.favoriteRecipesArray.firstIndex(of: recipe) {
-                Favorites.favorites.removeFromFavorites(index: index)
-            }
-        } else if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.2653724849, green: 0.5822041631, blue: 0.3644598722, alpha: 1) {
-            // Append in favorite array
-            Favorites.favorites.addToFavorite(recipe: recipe)
-        }
-        
-        
-        // Core Data method here
+        checkIfAlreadyInFavorite()
     }
     
     // Method to attribute all outlets
@@ -105,6 +98,30 @@ class RecipeDetailsViewController: UIViewController {
         }
     }
     
+    // Method to check if already as favorite or not
+    private func checkIfAlreadyInFavorite(){
+        if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.9386852384, green: 0.905385077, blue: 0.8662842512, alpha: 1) {
+            // Remove from the favorite array
+            if let index = Favorites.favorites.favoriteRecipesArray.firstIndex(where: { $0.label == recipe.label }) {
+                Favorites.favorites.removeFromFavorites(index: index)
+            }
+        } else if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.2653724849, green: 0.5822041631, blue: 0.3644598722, alpha: 1) {
+            // Append in favorite array
+            Favorites.favorites.addToFavorite(recipe: recipe)
+        }
+    }
+    
+    // Method to save/remove recipe from database
+    private func saveOrRemoveRecipe(){
+        if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.9386852384, green: 0.905385077, blue: 0.8662842512, alpha: 1) {
+            // Remove from database
+            RecipeSaveManagement.recipeSaveManagement.removeRecipe(recipeToRemove: recipe)
+
+        } else if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.2653724849, green: 0.5822041631, blue: 0.3644598722, alpha: 1) {
+            // Save in database
+            RecipeSaveManagement.recipeSaveManagement.saveRecipe(recipeToSave: recipe)
+        }
+    }
     
     
     // Method to attribute the image

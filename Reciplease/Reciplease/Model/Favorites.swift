@@ -28,4 +28,24 @@ class Favorites {
     }
     
     
+    // Method to charge data from database
+    func fillFavoriteRecipeArray() {
+        
+        for recipe in RecipeEntity.all {
+            
+            // create a Recipe object
+            var recipeToAppend = Recipe()
+            recipeToAppend.label = recipe.label
+            recipeToAppend.image = recipe.image
+            recipeToAppend.totalTime = recipe.totalTime
+            recipeToAppend.url = recipe.url
+            recipeToAppend.ingredientLines = recipe.ingredientLine?.components(separatedBy: ",")
+            
+            // Append in favorite recipe array
+            addToFavorite(recipe: recipeToAppend)
+            
+        }
+    }
+    
+    
 }

@@ -17,14 +17,13 @@ class AlamoRequest {
     let apiKey = "e9cd4953e3e8faa0efb57bd69fcd67af"
     let appID = "3b0ddcdf"
     
-    // Set up a notification when card did swipe to the up
+    // Set a notification when the recipe are loaded
     static let notificationRecipeLoaded = Notification.Name("recipeLoaded")
     
     // To get the data from the request
     var recipe : ResponseObject! {
         didSet {
             DispatchQueue.main.async {
-                print(self.recipe.hits[0].recipe.label!)
                 NotificationCenter.default.post(name: AlamoRequest.notificationRecipeLoaded, object: nil, userInfo: nil)
             }
         }
@@ -34,16 +33,12 @@ class AlamoRequest {
     public init() {}
     
     
-    func getRequest(ingredient: String) {
+    func getRequest(ingredient: String, callback: @escaping(_ result: DataResponse<ResponseObject, AFError>?) -> Void) {
         
         let parameters = ["q":ingredient,"to":"100","app_id":appID,"app_key":apiKey]
         
         AF.request("https://api.edamam.com/search?", method: .get, parameters: parameters).responseDecodable(of: ResponseObject.self) { (response) in
-            // Check if result has a value
-            if let data = response.value {
-//                print(data)
-                self.recipe = data
-            }
+            callback(response)
         }
     }
     

@@ -24,6 +24,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         // Set the text fields delegates
         self.textFieldOutlet.delegate = self
+        
+        // Load data from database
+        Favorites.favorites.fillFavoriteRecipeArray()
     }
     
     // Dismiss the keyboard (tap on the view)
@@ -34,7 +37,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     // Dismiss the keyboard (Done)
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        addIngredient()
+        if textFieldOutlet.text != "" {
+            // Append the array of ingredients
+            Search.searchClass.addIngredient(ingredient: textFieldOutlet.text!)
+            updateTextView()
+            textFieldOutlet.text = ""
+        }
         return false
     }
     
@@ -42,7 +50,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         // Call the request thru the alamofire request
         if Search.searchClass.ingredientList.count > 0 {
             // Append the array of ingredients
-            AlamoRequest.alamoRequest.getRequest(ingredient: Search.searchClass.ingredientListForResquest)
+            AlamoRequest.alamoRequest.getRequest(ingredient: Search.searchClass.ingredientListForResquest, callback: {result in guard let result = result else {return}
+                if let data = result.value {
+                    AlamoRequest.alamoRequest.recipe = data
+                }
+            })
             // Go to the tableView scene
             performSegue(withIdentifier: "toRecipeList", sender: nil)
         } else {

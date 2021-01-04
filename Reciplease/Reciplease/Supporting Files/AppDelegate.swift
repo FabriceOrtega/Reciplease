@@ -78,6 +78,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    // Add Static var to simplify the usage of CoreData
+    static var persistentContainer: NSPersistentContainer {
+        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    }
+    
+    // Do the same for the context
+    static var viewContext: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
 
 }
 
