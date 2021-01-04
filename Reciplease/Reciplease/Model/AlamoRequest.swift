@@ -14,14 +14,14 @@ class AlamoRequest {
     public static let alamoRequest = AlamoRequest()
     
     //API key and app ID
-    let apiKey = "e9cd4953e3e8faa0efb57bd69fcd67af"
-    let appID = "3b0ddcdf"
+    let apiKey = ""
+    let appID = ""
     
     // Set a notification when the recipe are loaded
     static let notificationRecipeLoaded = Notification.Name("recipeLoaded")
     
     // To get the data from the request
-    var recipe : ResponseObject! {
+    var recipe : ResponseObject? {
         didSet {
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: AlamoRequest.notificationRecipeLoaded, object: nil, userInfo: nil)

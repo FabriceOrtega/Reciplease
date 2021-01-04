@@ -13,7 +13,7 @@ class RecipeTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet var recipeTableVew: UITableView!
     
     // To pass data to the detailled view
-    var recipe: Recipe!
+    var recipe: Recipe?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +35,10 @@ class RecipeTableViewController: UIViewController, UITableViewDelegate, UITableV
     // Method executed when the card swiped to the up
     @objc func recipeLoaded(notification:Notification) {
         recipeTableVew.reloadData()
-        if AlamoRequest.alamoRequest.recipe.hits.count == 0 {
-            alert(title: "No recipe found", message: "No recipe found with these ingredients")
+        if let recipeCount = AlamoRequest.alamoRequest.recipe?.hits {
+            if recipeCount.count == 0 {
+                alert(title: "No recipe found", message: "No recipe found with these ingredients")
+            }
         }
     }
 

@@ -13,7 +13,7 @@ class FavoriteTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet var favoriteTableView: UITableView!
     
     // To pass data to the detailled view
-    var recipe: Recipe!
+    var recipe: Recipe?
     
     override func viewDidLoad() {
         super.viewDidLoad()

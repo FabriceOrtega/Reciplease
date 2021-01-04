@@ -10,7 +10,7 @@ import UIKit
 class RecipeDetailsViewController: UIViewController {
     
     // Get from the cell the user selected
-    var recipe: Recipe!
+    var recipe: Recipe?
     
     // Recipe name label
     @IBOutlet weak var recipeNameLabel: UILabel!
@@ -46,7 +46,7 @@ class RecipeDetailsViewController: UIViewController {
     // Get direction button
     @IBAction func getDirectionsButton(_ sender: Any) {
         // Send to website
-        if let urlLink = recipe.url {
+        if let urlLink = recipe?.url {
             guard let url = URL(string: urlLink) else { return }
             UIApplication.shared.open(url)
         } else {
@@ -70,7 +70,7 @@ class RecipeDetailsViewController: UIViewController {
     // Method to attribute all outlets
     private func attributeOutlets(){
         // Recipe name label
-        recipeNameLabel.text = recipe.label
+        recipeNameLabel.text = recipe?.label
         
         // Attribute image
         attributeImage()
@@ -82,7 +82,7 @@ class RecipeDetailsViewController: UIViewController {
         roundCornersTimeImage()
         
         // Attribute the time
-        timeLabel.text = attributeTime(time: recipe.totalTime)
+        timeLabel.text = attributeTime(time: recipe?.totalTime)
         
         // if favorite, put the button in green
         checkFavorite()
@@ -102,12 +102,12 @@ class RecipeDetailsViewController: UIViewController {
     private func checkIfAlreadyInFavorite(){
         if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.9386852384, green: 0.905385077, blue: 0.8662842512, alpha: 1) {
             // Remove from the favorite array
-            if let index = Favorites.favorites.favoriteRecipesArray.firstIndex(where: { $0.label == recipe.label }) {
+            if let index = Favorites.favorites.favoriteRecipesArray.firstIndex(where: { $0.label == recipe?.label }) {
                 Favorites.favorites.removeFromFavorites(index: index)
             }
         } else if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.2653724849, green: 0.5822041631, blue: 0.3644598722, alpha: 1) {
             // Append in favorite array
-            Favorites.favorites.addToFavorite(recipe: recipe)
+            Favorites.favorites.addToFavorite(recipe: recipe!)
         }
     }
     
@@ -115,11 +115,11 @@ class RecipeDetailsViewController: UIViewController {
     private func saveOrRemoveRecipe(){
         if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.9386852384, green: 0.905385077, blue: 0.8662842512, alpha: 1) {
             // Remove from database
-            RecipeSaveManagement.recipeSaveManagement.removeRecipe(recipeToRemove: recipe)
+            RecipeSaveManagement.recipeSaveManagement.removeRecipe(recipeToRemove: recipe!)
 
         } else if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.2653724849, green: 0.5822041631, blue: 0.3644598722, alpha: 1) {
             // Save in database
-            RecipeSaveManagement.recipeSaveManagement.saveRecipe(recipeToSave: recipe)
+            RecipeSaveManagement.recipeSaveManagement.saveRecipe(recipeToSave: recipe!)
         }
     }
     
@@ -127,7 +127,7 @@ class RecipeDetailsViewController: UIViewController {
     // Method to attribute the image
     private func attributeImage() {
         // attribute the image (calling a method from below extension)
-        let link = recipe.image ?? "https://www.edamam.com/web-img/2c0/2c0ac2c82407335d6141e699a7442164.jpg"
+        let link = recipe?.image ?? "https://www.edamam.com/web-img/2c0/2c0ac2c82407335d6141e699a7442164.jpg"
         recipeImageOutlet.downloaded(from: link)
         recipeImageOutlet.contentMode = .scaleAspectFill
         // Attribute gradient for the images
@@ -139,9 +139,9 @@ class RecipeDetailsViewController: UIViewController {
     
     // Method to attribute the ingredients
     private func attributeIngredients(){
-        if recipe.ingredientLines != nil {
+        if recipe?.ingredientLines != nil {
             // Create a string from the array
-            let ingredientsList: String = "- " + (recipe.ingredientLines?.joined(separator:"\n- "))!
+            let ingredientsList: String = "- " + (recipe?.ingredientLines?.joined(separator:"\n- "))!
             // Attribute the string to the text view
             ingredientsTextView.text = ingredientsList
         } else {
@@ -160,7 +160,7 @@ class RecipeDetailsViewController: UIViewController {
     // Method to check if recipe is in favorite
     private func checkFavorite() {
         // Search for this recipe in list favorite
-        if (Favorites.favorites.favoriteRecipesArray.firstIndex(where: { $0.label == recipe.label }) != nil) {
+        if (Favorites.favorites.favoriteRecipesArray.firstIndex(where: { $0.label == recipe?.label }) != nil) {
             favoriteButtonOutlet.tintColor = #colorLiteral(red: 0.2653724849, green: 0.5822041631, blue: 0.3644598722, alpha: 1)
         }
     }
