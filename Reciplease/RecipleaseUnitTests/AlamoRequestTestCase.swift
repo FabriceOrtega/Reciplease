@@ -15,15 +15,13 @@ class AlamoRequestTestCase: XCTestCase {
         
         let expectation = self.expectation(description: "Alamofire")
         
-        var recipe: ResponseObject!
-        
-        
         AlamoRequest.alamoRequest.getRequest(ingredient: "Lemon", callback: {result in
             guard let result = result else {return}
             if let data = result.value {
-                recipe = data
+                //recipe = data
+                AlamoRequest.alamoRequest.recipe = data
                 
-                let resultString = recipe.hits[0].recipe.label
+                let resultString = AlamoRequest.alamoRequest.recipe?.hits[0].recipe.label
                 let expectedString = "Lemon Confit"
                 
                 XCTAssertEqual(resultString, expectedString)
