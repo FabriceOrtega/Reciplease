@@ -18,7 +18,7 @@ class RecipeSaveManagement {
     
     // MARK: Database Methods
     
-    // Method to add an kanji in the database
+    // Method to add a recipe in the database
     func saveRecipe(recipeToSave: Recipe) {
         // Save the object in the context
         let recipe = RecipeEntity(context: AppDelegate.viewContext)
@@ -32,7 +32,7 @@ class RecipeSaveManagement {
         try? AppDelegate.viewContext.save()
     }
     
-    // Method to remove a kanji from the database
+    // Method to remove a recipe from the database
     func removeRecipe(recipeToRemove: Recipe) {
         // Save the object in the context
         let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()

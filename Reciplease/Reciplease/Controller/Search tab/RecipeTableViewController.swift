@@ -32,7 +32,7 @@ class RecipeTableViewController: UIViewController, UITableViewDelegate, UITableV
         recipeTableVew.reloadData()
     }
     
-    // Method executed when the card swiped to the up
+    // Method executed when the recipe object is charged
     @objc func recipeLoaded(notification:Notification) {
         recipeTableVew.reloadData()
         if let recipeCount = AlamoRequest.alamoRequest.recipe?.hits {
