@@ -5,8 +5,8 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,8 +17,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0uV-NM-aaf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.21556642649999999" green="0.2000685334" blue="0.19607791299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="sectionIndexBackgroundColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" name="backgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" id="AO3-jf-fyq" customClass="FavoriteTableViewCell" customModule="Reciplease" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="120"/>
@@ -29,13 +29,14 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dyc-Ho-rNN">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                            <color key="backgroundColor" name="backgroundColor"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCk-l6-xJi">
                                             <rect key="frame" x="20" y="69" width="374" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="Rtf-qX-h6B"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
                                             <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -44,15 +45,15 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="YEv-WD-abc"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="15"/>
                                             <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Q7-bw-ewv">
-                                            <rect key="frame" x="344" y="10" width="60" height="40"/>
+                                            <rect key="frame" x="344" y="10" width="60" height="25"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="K0b-oV-L81">
-                                                    <rect key="frame" x="43" y="23" width="12" height="12"/>
+                                                    <rect key="frame" x="43" y="8" width="12" height="12"/>
                                                     <color key="tintColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="12" id="hTX-KP-zh5"/>
@@ -60,8 +61,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YO-Ed-B1M">
-                                                    <rect key="frame" x="5" y="23" width="38" height="14"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                                    <rect key="frame" x="5" y="10" width="38" height="12"/>
+                                                    <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="10"/>
                                                     <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -69,12 +70,12 @@
                                             <color key="backgroundColor" red="0.21556642649999999" green="0.2000685334" blue="0.19607791299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="K0b-oV-L81" secondAttribute="trailing" constant="5" id="2F7-yi-OoX"/>
-                                                <constraint firstAttribute="height" constant="40" id="Co0-T0-Wch"/>
+                                                <constraint firstAttribute="height" constant="25" id="Co0-T0-Wch"/>
                                                 <constraint firstAttribute="bottom" secondItem="3YO-Ed-B1M" secondAttribute="bottom" constant="3" id="ES9-yM-fRb"/>
                                                 <constraint firstItem="3YO-Ed-B1M" firstAttribute="leading" secondItem="8Q7-bw-ewv" secondAttribute="leading" constant="5" id="JzX-nI-tit"/>
                                                 <constraint firstItem="K0b-oV-L81" firstAttribute="leading" secondItem="3YO-Ed-B1M" secondAttribute="trailing" id="M5Y-ii-g1h"/>
                                                 <constraint firstAttribute="bottom" secondItem="K0b-oV-L81" secondAttribute="bottom" constant="5" id="NyR-tn-kGb"/>
-                                                <constraint firstAttribute="width" secondItem="8Q7-bw-ewv" secondAttribute="height" multiplier="3:2" id="SE5-uY-tvB"/>
+                                                <constraint firstAttribute="width" secondItem="8Q7-bw-ewv" secondAttribute="height" multiplier="60:25" id="SE5-uY-tvB"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -93,7 +94,7 @@
                                         <constraint firstItem="cij-PN-Pmd" firstAttribute="top" secondItem="iCk-l6-xJi" secondAttribute="bottom" constant="-5" id="z3d-iG-kv3"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.21556642649999999" green="0.2000685334" blue="0.19607791299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
                                 <connections>
                                     <outlet property="backgroundImageOutlet" destination="Dyc-Ho-rNN" id="0MV-ZM-OTi"/>
                                     <outlet property="ingredientsLabel" destination="cij-PN-Pmd" id="edP-E2-oTR"/>
@@ -125,7 +126,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EjU-nl-C9N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.21166852119999999" green="0.20006635789999999" blue="0.19607797269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <color key="sectionIndexBackgroundColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipe" rowHeight="120" id="E65-xN-d0v" customClass="RecipeTableViewCell" customModule="Reciplease" customModuleProvider="target">
@@ -137,13 +138,14 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wGm-PX-3KB">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                            <color key="backgroundColor" name="backgroundColor"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YM9-YL-gqr">
                                             <rect key="frame" x="20" y="69" width="374" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="cx0-ev-k9d"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
                                             <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -152,21 +154,21 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="sYY-GZ-urI"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="15"/>
                                             <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEC-Ju-LRX">
-                                            <rect key="frame" x="344" y="10" width="60" height="40"/>
+                                            <rect key="frame" x="344" y="10" width="60" height="25"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="px6-yL-FfN">
-                                                    <rect key="frame" x="5" y="23" width="38" height="14"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                                    <rect key="frame" x="5" y="10" width="38" height="12"/>
+                                                    <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="10"/>
                                                     <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="Kho-1W-hGQ">
-                                                    <rect key="frame" x="43" y="23" width="12" height="12"/>
+                                                    <rect key="frame" x="43" y="8" width="12" height="12"/>
                                                     <color key="tintColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="12" id="kYa-KK-GzO"/>
@@ -174,13 +176,13 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.21556642649999999" green="0.2000685334" blue="0.19607791299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" name="backgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Kho-1W-hGQ" secondAttribute="trailing" constant="5" id="OjF-0E-fqc"/>
                                                 <constraint firstItem="px6-yL-FfN" firstAttribute="leading" secondItem="AEC-Ju-LRX" secondAttribute="leading" constant="5" id="QPc-pp-h8r"/>
                                                 <constraint firstAttribute="bottom" secondItem="px6-yL-FfN" secondAttribute="bottom" constant="3" id="QTq-By-uDX"/>
-                                                <constraint firstAttribute="width" secondItem="AEC-Ju-LRX" secondAttribute="height" multiplier="3:2" id="ZjY-tb-HaY"/>
-                                                <constraint firstAttribute="height" constant="40" id="ao2-9U-fh0"/>
+                                                <constraint firstAttribute="width" secondItem="AEC-Ju-LRX" secondAttribute="height" multiplier="60:25" id="ZjY-tb-HaY"/>
+                                                <constraint firstAttribute="height" constant="25" id="ao2-9U-fh0"/>
                                                 <constraint firstItem="Kho-1W-hGQ" firstAttribute="leading" secondItem="px6-yL-FfN" secondAttribute="trailing" id="e8C-Km-WbU"/>
                                                 <constraint firstAttribute="bottom" secondItem="Kho-1W-hGQ" secondAttribute="bottom" constant="5" id="qQs-sG-W6C"/>
                                             </constraints>
@@ -202,7 +204,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="YM9-YL-gqr" secondAttribute="trailing" id="yjQ-iQ-7gx"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.21166852119999999" green="0.20006635789999999" blue="0.19607797269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
                                 <connections>
                                     <outlet property="backgroundImage" destination="wGm-PX-3KB" id="Plx-Nm-O6I"/>
                                     <outlet property="ingredientsLabel" destination="W7q-3g-8kJ" id="6Rh-er-QrV"/>
@@ -239,8 +241,8 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="324"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXb-lZ-BXq">
-                                <rect key="frame" x="10" y="379" width="394" height="23"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
+                                <rect key="frame" x="10" y="380.5" width="394" height="21.5"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="18"/>
                                 <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -249,19 +251,19 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="ilE-Iz-vIV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
                                 <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewa-Iq-xgS">
                                 <rect key="frame" x="20" y="743" width="374" height="50"/>
-                                <color key="backgroundColor" red="0.3492869139" green="0.57499772309999997" blue="0.38428533079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="a3h-Ah-A2q"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="22"/>
                                 <state key="normal" title="Get directions">
-                                    <color key="titleColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" name="backgroundColor"/>
                                 </state>
                                 <connections>
                                     <action selector="getDirectionsButton:" destination="dVq-aQ-oaf" eventType="touchUpInside" id="mPM-Se-4H4"/>
@@ -269,22 +271,22 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dyn-Q9-4Zz">
                                 <rect key="frame" x="20" y="464" width="374" height="269"/>
-                                <color key="backgroundColor" red="0.21556642649999999" green="0.2000685334" blue="0.19607791299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
                                 <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mx1-Kr-NJ3">
-                                <rect key="frame" x="339" y="103" width="60" height="40"/>
+                                <rect key="frame" x="339" y="103" width="60" height="25"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svD-GO-pV2">
-                                        <rect key="frame" x="5" y="23" width="38" height="14"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                        <rect key="frame" x="5" y="10" width="38" height="12"/>
+                                        <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="10"/>
                                         <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="lHb-bA-bz5">
-                                        <rect key="frame" x="43" y="23" width="12" height="12"/>
+                                        <rect key="frame" x="43" y="8" width="12" height="12"/>
                                         <color key="tintColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="lHb-bA-bz5" secondAttribute="height" id="2Zi-ow-wNA"/>
@@ -297,15 +299,15 @@
                                     <constraint firstAttribute="bottom" secondItem="lHb-bA-bz5" secondAttribute="bottom" constant="5" id="4W0-6T-r4m"/>
                                     <constraint firstItem="svD-GO-pV2" firstAttribute="leading" secondItem="mx1-Kr-NJ3" secondAttribute="leading" constant="5" id="Ohh-aO-2DS"/>
                                     <constraint firstAttribute="trailing" secondItem="lHb-bA-bz5" secondAttribute="trailing" constant="5" id="TkO-Iw-zaI"/>
-                                    <constraint firstAttribute="height" constant="40" id="Ums-47-8zN"/>
+                                    <constraint firstAttribute="height" constant="25" id="Ums-47-8zN"/>
                                     <constraint firstItem="lHb-bA-bz5" firstAttribute="leading" secondItem="svD-GO-pV2" secondAttribute="trailing" id="ke2-aL-dco"/>
-                                    <constraint firstAttribute="width" secondItem="mx1-Kr-NJ3" secondAttribute="height" multiplier="3:2" id="m0h-O3-xYi"/>
+                                    <constraint firstAttribute="width" secondItem="mx1-Kr-NJ3" secondAttribute="height" multiplier="60:25" id="m0h-O3-xYi"/>
                                     <constraint firstAttribute="bottom" secondItem="svD-GO-pV2" secondAttribute="bottom" constant="3" id="rtv-3i-MeY"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dqo-yg-hME"/>
-                        <color key="backgroundColor" red="0.21556642649999999" green="0.2000685334" blue="0.19607791299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="PEX-cV-SCM" firstAttribute="top" secondItem="MtA-oL-ZzJ" secondAttribute="bottom" constant="20" id="B8M-7n-yIq"/>
                             <constraint firstItem="Dyn-Q9-4Zz" firstAttribute="leading" secondItem="dqo-yg-hME" secondAttribute="leading" constant="20" id="FLQ-Zi-s6q"/>
@@ -345,6 +347,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="favoriteButtonOutlet" destination="8d2-hl-88o" id="NJI-0a-8Dg"/>
+                        <outlet property="getDirectionsButtonOutlet" destination="ewa-Iq-xgS" id="VaZ-qH-FWB"/>
                         <outlet property="ingredientsTextView" destination="Dyn-Q9-4Zz" id="VUa-ER-UAZ"/>
                         <outlet property="recipeImageOutlet" destination="MtA-oL-ZzJ" id="WJr-S2-G8O"/>
                         <outlet property="recipeNameLabel" destination="bXb-lZ-BXq" id="iwu-I1-Npy"/>
@@ -366,13 +369,13 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlW-se-mC6">
                                 <rect key="frame" x="20" y="743" width="374" height="50"/>
-                                <color key="backgroundColor" red="0.3492869139" green="0.57499772309999997" blue="0.38428533079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ESp-Xw-34r"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="22"/>
                                 <state key="normal" title="Search for recipes">
-                                    <color key="titleColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" name="backgroundColor"/>
                                 </state>
                                 <connections>
                                     <action selector="searchRecipeButton:" destination="dXv-gm-6f6" eventType="touchUpInside" id="CoZ-e9-Iv1"/>
@@ -380,42 +383,45 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AYb-yK-11b">
                                 <rect key="frame" x="20" y="258" width="374" height="475"/>
-                                <color key="backgroundColor" red="0.21166852119999999" green="0.20006635789999999" blue="0.19607797269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
                                 <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-4G-HQX" userLabel="White View">
                                 <rect key="frame" x="0.0" y="88" width="414" height="120"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lemon, Cheese, Sausages..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TGe-9P-35E">
-                                        <rect key="frame" x="10" y="71" width="304" height="34"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lemon, Cheese, Sausages..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TGe-9P-35E">
+                                        <rect key="frame" x="10" y="66" width="304" height="34"/>
+                                        <color key="backgroundColor" name="searchColor"/>
+                                        <color key="tintColor" name="backgroundColor"/>
+                                        <color key="textColor" name="backgroundColor"/>
+                                        <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's in your fridge ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAa-X3-9rV">
-                                        <rect key="frame" x="0.0" y="20" width="414" height="31"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="20" width="414" height="26"/>
+                                        <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="22"/>
+                                        <color key="textColor" name="backgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgJ-c2-YAG">
-                                        <rect key="frame" x="334" y="71" width="60" height="30"/>
-                                        <color key="backgroundColor" red="0.3492869139" green="0.57499772309999997" blue="0.38428533079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <rect key="frame" x="334" y="66" width="60" height="30"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="N9X-Io-UGJ"/>
                                             <constraint firstAttribute="width" secondItem="vgJ-c2-YAG" secondAttribute="height" multiplier="2:1" id="VHB-hE-kFc"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                         <state key="normal" title="Add">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" name="backgroundColor"/>
                                         </state>
                                         <connections>
                                             <action selector="addButton:" destination="dXv-gm-6f6" eventType="touchUpInside" id="RC8-Er-yMR"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="searchColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="GAa-X3-9rV" secondAttribute="trailing" id="6LS-c1-OG1"/>
                                     <constraint firstAttribute="height" constant="120" id="9zd-he-evi"/>
@@ -435,7 +441,7 @@
                                     <constraint firstAttribute="width" secondItem="IVW-CR-pD2" secondAttribute="height" multiplier="2:1" id="L3A-oi-r0k"/>
                                     <constraint firstAttribute="height" constant="30" id="QUr-OR-0ON"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <state key="normal" title="Clear">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -444,14 +450,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqp-fp-Jxq">
-                                <rect key="frame" x="20" y="228" width="294" height="26"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                <rect key="frame" x="20" y="228" width="294" height="24"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
                                 <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="svx-GD-4MG"/>
-                        <color key="backgroundColor" red="0.21166852119999999" green="0.20006635789999999" blue="0.19607797269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="svx-GD-4MG" firstAttribute="trailing" secondItem="AYb-yK-11b" secondAttribute="trailing" constant="20" id="0h5-B6-LRV"/>
                             <constraint firstItem="Mch-4G-HQX" firstAttribute="leading" secondItem="svx-GD-4MG" secondAttribute="leading" id="77c-Nd-NOP"/>
@@ -472,6 +478,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="gUk-A8-OCv"/>
                     <connections>
+                        <outlet property="addButtonOutlet" destination="vgJ-c2-YAG" id="fLi-bO-SEu"/>
+                        <outlet property="clearButtonOutlet" destination="IVW-CR-pD2" id="Uf0-Fh-uuM"/>
+                        <outlet property="searchButtonOutlet" destination="AlW-se-mC6" id="eq7-Dx-9dF"/>
+                        <outlet property="searchViewOutlet" destination="Mch-4G-HQX" id="HAM-WY-ZQ8"/>
                         <outlet property="textFieldOutlet" destination="TGe-9P-35E" id="6nO-Pe-jYD"/>
                         <outlet property="textViewOutlet" destination="AYb-yK-11b" id="Dyl-k5-vrU"/>
                         <segue destination="FFc-1f-Dyw" kind="show" identifier="toRecipeList" id="aUt-3W-MPX"/>
@@ -489,7 +499,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" red="0.21556642649999999" green="0.2000685334" blue="0.19607791299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" name="backgroundColor"/>
                         <color key="selectedImageTintColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
@@ -512,9 +522,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.21556642649999999" green="0.2000685334" blue="0.19607791299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" red="0.21166852119999999" green="0.20006635789999999" blue="0.19607797269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" name="backgroundColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                             <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </textAttributes>
                     </navigationBar>
@@ -531,16 +541,18 @@
         <scene sceneID="UUd-2S-GyU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YHS-oC-Frc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" id="12E-eR-WKK"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="12E-eR-WKK">
+                        <imageReference key="image" image="star.fill" symbolScale="large"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sj4-Gw-FQK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.21556642649999999" green="0.2000685334" blue="0.19607791299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" red="0.21556642649999999" green="0.2000685334" blue="0.19607791299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" name="backgroundColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                             <color key="textColor" red="0.93294996019999998" green="0.90645951030000005" blue="0.87058401110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </textAttributes>
                     </navigationBar>
@@ -561,8 +573,14 @@
         <image name="clock" width="13" height="13"/>
         <image name="magnifyingglass" width="12" height="12"/>
         <image name="star.fill" width="15" height="14"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="AccentColor">
+            <color red="0.84804606437683105" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="backgroundColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="searchColor">
+            <color red="0.96313214302062988" green="0.97050625085830688" blue="0.96804910898208618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

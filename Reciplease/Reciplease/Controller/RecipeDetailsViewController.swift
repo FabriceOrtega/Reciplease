@@ -30,6 +30,12 @@ class RecipeDetailsViewController: UIViewController {
     // Star button (favorite) outlet
     @IBOutlet weak var favoriteButtonOutlet: UIButton!
     
+    // Get direction outlet
+    @IBOutlet weak var getDirectionsButtonOutlet: UIButton!
+    
+    // Corner radius
+    var cornerRadius: CGFloat = 20
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +47,12 @@ class RecipeDetailsViewController: UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = "Back"
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
+        // Round the corners of the get directions button
+        getDirectionsButtonOutlet.layer.cornerRadius = cornerRadius
+        
+        // Round the corners of the image
+        recipeImageOutlet.layer.cornerRadius = cornerRadius
     }
     
     // Get direction button
@@ -92,8 +104,8 @@ class RecipeDetailsViewController: UIViewController {
     // Method to change color of teh star
     private func changeFavoriteButtonColor(){
         if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.9386852384, green: 0.905385077, blue: 0.8662842512, alpha: 1) {
-            favoriteButtonOutlet.tintColor = #colorLiteral(red: 0.2653724849, green: 0.5822041631, blue: 0.3644598722, alpha: 1)
-        } else if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.2653724849, green: 0.5822041631, blue: 0.3644598722, alpha: 1) {
+            favoriteButtonOutlet.tintColor = #colorLiteral(red: 0.8441558442, green: 1, blue: 1, alpha: 1)
+        } else if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.8441558442, green: 1, blue: 1, alpha: 1) {
             favoriteButtonOutlet.tintColor = #colorLiteral(red: 0.9386852384, green: 0.905385077, blue: 0.8662842512, alpha: 1)
         }
     }
@@ -105,7 +117,7 @@ class RecipeDetailsViewController: UIViewController {
             if let index = Favorites.favorites.favoriteRecipesArray.firstIndex(where: { $0.label == recipe?.label }) {
                 Favorites.favorites.removeFromFavorites(index: index)
             }
-        } else if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.2653724849, green: 0.5822041631, blue: 0.3644598722, alpha: 1) {
+        } else if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.8441558442, green: 1, blue: 1, alpha: 1) {
             // Append in favorite array
             Favorites.favorites.addToFavorite(recipe: recipe!)
         }
@@ -117,7 +129,7 @@ class RecipeDetailsViewController: UIViewController {
             // Remove from database
             RecipeSaveManagement.recipeSaveManagement.removeRecipe(recipeToRemove: recipe!)
 
-        } else if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.2653724849, green: 0.5822041631, blue: 0.3644598722, alpha: 1) {
+        } else if favoriteButtonOutlet.tintColor == #colorLiteral(red: 0.8441558442, green: 1, blue: 1, alpha: 1) {
             // Save in database
             RecipeSaveManagement.recipeSaveManagement.saveRecipe(recipeToSave: recipe!)
         }
@@ -161,7 +173,7 @@ class RecipeDetailsViewController: UIViewController {
     private func checkFavorite() {
         // Search for this recipe in list favorite
         if (Favorites.favorites.favoriteRecipesArray.firstIndex(where: { $0.label == recipe?.label }) != nil) {
-            favoriteButtonOutlet.tintColor = #colorLiteral(red: 0.2653724849, green: 0.5822041631, blue: 0.3644598722, alpha: 1)
+            favoriteButtonOutlet.tintColor = #colorLiteral(red: 0.8441558442, green: 1, blue: 1, alpha: 1)
         }
     }
 

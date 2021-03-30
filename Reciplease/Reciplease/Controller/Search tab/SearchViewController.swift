@@ -15,6 +15,18 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     // Outlet of text field to enter new ingredient
     @IBOutlet weak var textFieldOutlet: UITextField!
     
+    // Search view outlet
+    @IBOutlet weak var searchViewOutlet: UIView!
+    
+    //Button outlets
+    @IBOutlet weak var addButtonOutlet: UIButton!
+    @IBOutlet weak var clearButtonOutlet: UIButton!
+    @IBOutlet weak var searchButtonOutlet: UIButton!
+    
+    // Corner radius for all buttons
+    var smallCornerRadius: CGFloat = 12
+    var cornerRadius: CGFloat = 20
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +36,18 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         // Set the text fields delegates
         self.textFieldOutlet.delegate = self
+        
+        // Set textfield placeholder and border color
+        textFieldOutlet.attributedPlaceholder = NSAttributedString(string: "Lemon, Cheese, Sausages...",attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        textFieldOutlet.layer.borderWidth = 1.0
+        textFieldOutlet.layer.borderColor = UIColor.gray.cgColor
+        
+        // Corner radius
+        textFieldOutlet.layer.cornerRadius = smallCornerRadius
+        addButtonOutlet.layer.cornerRadius = smallCornerRadius
+        clearButtonOutlet.layer.cornerRadius = smallCornerRadius
+        searchButtonOutlet.layer.cornerRadius = cornerRadius
+        searchViewOutlet.layer.cornerRadius = cornerRadius
         
         // Load data from database
         Favorites.favorites.fillFavoriteRecipeArray()

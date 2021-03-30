@@ -86,6 +86,9 @@ class RecipeTableViewController: UIViewController, UITableViewDelegate, UITableV
         cell?.timeView.layer.borderWidth = 1
         cell?.timeView.layer.borderColor = #colorLiteral(red: 0.9386852384, green: 0.905385077, blue: 0.8662842512, alpha: 1)
         
+        // Round the corners of the image
+        cell?.backgroundImage.layer.cornerRadius = 20
+        
         // Attribute the timing
         cell?.timeLabel.text = attributeTime(time: AlamoRequest.alamoRequest.recipe?.hits[indexPath.row].recipe.totalTime)
         

@@ -71,6 +71,9 @@ class FavoriteTableViewController: UIViewController, UITableViewDelegate, UITabl
 
         // Attribute the timing
         cell?.timeLabel.text = attributeTime(time: Favorites.favorites.favoriteRecipesArray[indexPath.row].totalTime)
+        
+        // Round the corners of the image
+        cell?.backgroundImageOutlet.layer.cornerRadius = 20
 
         
         return cell!
